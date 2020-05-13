@@ -1,0 +1,61 @@
+import * as React from 'react';
+import {NavigationContainer} from '@react-navigation/native';
+
+import { StyleSheet, Text, View,TextInput, Button,  } from 'react-native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+
+function Home() {
+    //const [outputText,setOutputText]=useState("Open up APp.js to start working");
+    return (
+    <View style={{padding: 50}}>
+
+      <View style={{padding:10,flexDirection:'row',justifyContent:"space-between",alignContent:'center'}}>
+        <TextInput placeholder="Enter Hours: " 
+        style={{borderColor:"black",borderWidth:2,padding:10,width:'80%'}}
+        />
+        <Button title="ADD"/>
+      </View>
+
+      <View style={styles.containers}>
+        <Text style={styles.blackText}>Hello, George!</Text>
+      </View>
+    </View>
+  );
+}
+
+
+
+
+function HoursPage() {
+  return (
+    <View style={styles.containers}>
+      <Text style={styles.blackText}>Welcome to the Hours Page</Text>
+    </View>
+  );
+}
+
+
+const styles = StyleSheet.create({
+  containers: {
+    
+    padding:50,
+    backgroundColor: 'black',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  blackText:{color:'#FF9800'}
+});
+ 
+const Tab = createBottomTabNavigator();
+
+export default function App() {
+  return (
+    <NavigationContainer>
+      <Tab.Navigator>
+        <Tab.Screen name="Home" component={Home}/>
+        <Tab.Screen name="Hours" component={HoursPage}/>
+      </Tab.Navigator>
+    </NavigationContainer>
+  );
+}
+
